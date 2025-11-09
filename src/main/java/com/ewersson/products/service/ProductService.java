@@ -1,6 +1,7 @@
 package com.ewersson.products.service;
 
 import com.ewersson.products.entities.Product;
+import com.ewersson.products.entities.dto.CreateProductDTO;
 import com.ewersson.products.entities.dto.ProductDTO;
 import com.ewersson.products.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,19 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Product create(Product product){
-        return productRepository.save(product);
+    public ProductDTO create(CreateProductDTO dto){
+        Product product = new Product(
+                null,
+                dto.getName(),
+                dto.getPrice(),
+                dto.getImage(),
+                dto.getQuantity()
+        );
+
+        Product saved = productRepository.save(product);
+        return new ProductDTO(saved);
     }
+
 
     public List<ProductDTO> getAll(){
         List<Product> products = productRepository.findAll();
@@ -30,9 +41,13 @@ public class ProductService {
         return Optional.of(new ProductDTO(product.orElse(null)));
     }
 
-    public List<ProductDTO> findBetweenPrice(BigDecimal smaller, BigDecimal bigger){
+    public List<ProductDTO> findBetweenPrice(BigDecimal smaller, BigDecimal bigger) {
         List<Product> products = productRepository.findProductBetweenPrice(smaller, bigger);
-        return products.stream().map(ProductDTO::new).toList();
+        return products.stream()
+                .map(ProductDTO::new)
+                .toList();
     }
+
+
 
 }

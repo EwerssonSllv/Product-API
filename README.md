@@ -27,7 +27,7 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 * `POST /product` — creates a new product (currently receives a `Product` directly in the request body)
 * `GET /product` — lists products (returns `List<ProductDTO>`)
 * `GET /product/{id}` — gets a product by id (returns `Optional<ProductDTO>`)
-
+* `GET /product/price/{smaller}/{bigger` — obtains products between two values.
 > Note: In the current state some points can be improved (validation, proper HTTP status codes, error handling, using an input DTO for creation, etc.) — see the "Planned Improvements" section.
 
 ---

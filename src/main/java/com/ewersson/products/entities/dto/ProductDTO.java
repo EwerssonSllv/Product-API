@@ -14,7 +14,7 @@ public class ProductDTO {
     private BigDecimal price;
     private String image;
 
-    public ProductDTO(List<Product> product){}
+    public ProductDTO(){}
 
     public ProductDTO(Product product) {
         BeanUtils.copyProperties(product, this);
