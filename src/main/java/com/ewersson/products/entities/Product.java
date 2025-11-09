@@ -1,8 +1,10 @@
 package com.ewersson.products.entities;
 
-
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -12,14 +14,19 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
     private String name;
-    private Double price;
+    @NotNull
+    private BigDecimal price;
+    @NotBlank
     private String image;
+    @NotBlank
     private Integer quantity;
 
     public Product(){}
 
-    public Product(Long id, String name, Double price, String image, Integer quantity) {
+    public Product(Long id, String name, BigDecimal price, String image, Integer quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -43,11 +50,11 @@ public class Product {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

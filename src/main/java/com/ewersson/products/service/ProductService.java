@@ -6,6 +6,7 @@ import com.ewersson.products.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,11 @@ public class ProductService {
     public Optional<ProductDTO> findById(Long id){
         Optional<Product> product = productRepository.findById(id);
         return Optional.of(new ProductDTO(product.orElse(null)));
+    }
+
+    public List<ProductDTO> findBetweenPrice(BigDecimal smaller, BigDecimal bigger){
+        List<Product> products = productRepository.findProductBetweenPrice(smaller, bigger);
+        return products.stream().map(ProductDTO::new).toList();
     }
 
 }

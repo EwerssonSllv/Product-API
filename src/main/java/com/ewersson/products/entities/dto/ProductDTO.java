@@ -3,6 +3,7 @@ package com.ewersson.products.entities.dto;
 import com.ewersson.products.entities.Product;
 import org.springframework.beans.BeanUtils;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,10 +11,10 @@ public class ProductDTO {
 
     private Long id;
     private String name;
-    private Double price;
+    private BigDecimal price;
     private String image;
 
-    public ProductDTO(List<Product> products){}
+    public ProductDTO(List<Product> product){}
 
     public ProductDTO(Product product) {
         BeanUtils.copyProperties(product, this);
@@ -35,11 +36,11 @@ public class ProductDTO {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
