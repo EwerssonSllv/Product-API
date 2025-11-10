@@ -6,4 +6,6 @@ public record ProductDTO(
         Long id,
         String name,
         BigDecimal price,
-        String image) {}
+        String image,
+        Integer quantity
+        ) {}

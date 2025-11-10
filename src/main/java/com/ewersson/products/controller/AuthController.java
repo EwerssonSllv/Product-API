@@ -5,6 +5,7 @@ import com.ewersson.products.entities.User;
 import com.ewersson.products.entities.dto.AuthenticationDTO;
 import com.ewersson.products.entities.dto.LoginResponseDTO;
 import com.ewersson.products.entities.dto.RegisterDTO;
+import com.ewersson.products.entities.role.UserRole;
 import com.ewersson.products.repositories.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class AuthController {
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data){
         if(this.userRepository.findByLogin(data.login()) != null) return ResponseEntity.badRequest().build();
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        User newUser = new User(data.login(), encryptedPassword, data.role());
+        User newUser = new User(data.login(), encryptedPassword, UserRole.USER);
 
         this.userRepository.save(newUser);
 
