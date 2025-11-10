@@ -24,7 +24,6 @@ public class Product {
     @NotNull
     private Integer quantity;
 
-    public Product(){}
 
     public Product(Long id, String name, BigDecimal price, String image, Integer quantity) {
         this.id = id;
@@ -33,6 +32,8 @@ public class Product {
         this.image = image;
         this.quantity = quantity;
     }
+
+    public Product(){}
 
     public Long getId() {
         return id;

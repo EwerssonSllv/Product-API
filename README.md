@@ -47,8 +47,7 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 * ✔ **Proper Responses:** return `ResponseEntity` with correct HTTP statuses (201 Created, 404 Not Found, 400 Bad Request).
 * ✔ **Exceptions**
 * ✔ **DTO ↔ Entity Mapping:** use MapStruct or a model mapper instead of manual constructors.
-* **Unit Tests:** mock `ProductRepository` and test `ProductService`.
-* **Integration Tests:** use H2 for fast tests or Testcontainers (PostgreSQL) for real-world-like testing.
+* ✔ **Unit Tests:** mock `ProductRepository` and test `ProductService`.
 
 ### Medium Priority
 
