@@ -53,9 +53,9 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 * **Authentication/Authorization:**
 
-  * JWT (stateless) — protect endpoints such as product creation
-  * OAuth2 (e.g., external provider integration) — study flows and scopes
-* **Documentation:** Swagger / OpenAPI
+* ✔ **JWT (stateless)** — protect endpoints such as product creation
+*   **OAuth2 (e.g., external provider integration)** — study flows and scopes
+* ✔ **Documentation:** Swagger / OpenAPI
 * **Database validations and constraints** (unique, length, not null)
 * **Structured logging** with request correlation (MDC)
 

@@ -4,13 +4,7 @@ import com.ewersson.products.entities.Product;
 import com.ewersson.products.entities.dto.CreateProductDTO;
 import com.ewersson.products.entities.dto.ProductDTO;
 import com.ewersson.products.entities.mapper.ProductMapper;
-import com.ewersson.products.repositories.ProductRepository;
-import com.ewersson.products.service.ProductService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
