@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("product")
@@ -35,12 +36,9 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getById(@PathVariable Long id) {
-        return productService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Optional<ProductDTO>> getById(@PathVariable Long id){
+        return ResponseEntity.ok(productService.findById(id));
     }
-
 
     @GetMapping("price/{smaller}/{bigger}")
     private ResponseEntity<List<ProductDTO>> findBetweenPrice(

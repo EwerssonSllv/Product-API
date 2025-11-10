@@ -45,7 +45,7 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 * ✔ **Input DTOs** for creation/update (`CreateProductDTO`, `UpdateProductDTO`) and validation using `@Valid`, `@NotNull`, `@Positive`, etc.
 * ✔ **Proper Responses:** return `ResponseEntity` with correct HTTP statuses (201 Created, 404 Not Found, 400 Bad Request).
-* **Global Exception Handling:** `@ControllerAdvice` with standardized error responses.
+* ✔ **Exceptions**
 * ✔ **DTO ↔ Entity Mapping:** use MapStruct or a model mapper instead of manual constructors.
 * **Unit Tests:** mock `ProductRepository` and test `ProductService`.
 * **Integration Tests:** use H2 for fast tests or Testcontainers (PostgreSQL) for real-world-like testing.
@@ -75,7 +75,7 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 * ✔ **Clear separation of layers:** Controller → Service → Repository
 * ✔ **Separate DTOs:** input vs. output DTOs
-* ✔ **Immutability in DTOs:** use `record` (Java 16+) or final classes
+* ✔ **Immutability in DTOs
 * **Test critical units first** (service) and then integration
 * **Code style and linting:** adopt a formatter/Checkstyle
 * **Branching strategy:** protected `main`; feature branches; PRs with green CI
@@ -89,4 +89,4 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 * Write unit tests for `ProductService` using Mockito.
 * Create integration tests with Testcontainers running a real PostgreSQL instance.
 * Implement JWT authentication: `/auth/login` returning token; secure `POST /product`.
-* Add Swagger UI and configure API documenta
+* Add Swagger UI and configure API documentation

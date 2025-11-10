@@ -5,6 +5,7 @@ import com.ewersson.products.entities.dto.CreateProductDTO;
 import com.ewersson.products.entities.dto.ProductDTO;
 import com.ewersson.products.entities.mapper.ProductMapper;
 import com.ewersson.products.repositories.ProductRepository;
+import com.ewersson.products.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,8 +57,10 @@ public class ProductService {
      */
 
     public Optional<ProductDTO> findById(Long id) {
-        return productRepository.findById(id)
-                .map(productMapper::toDTO);
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException("Product Not Found!"));
+
+        return Optional.ofNullable(productMapper.toDTO(product));
     }
 
     public List<ProductDTO> findBetweenPrice(BigDecimal smaller, BigDecimal bigger) {
