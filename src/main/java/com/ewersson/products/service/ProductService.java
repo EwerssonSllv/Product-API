@@ -3,6 +3,7 @@ package com.ewersson.products.service;
 import com.ewersson.products.entities.Product;
 import com.ewersson.products.entities.dto.CreateProductDTO;
 import com.ewersson.products.entities.dto.ProductDTO;
+import com.ewersson.products.entities.mapper.ProductMapper;
 import com.ewersson.products.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,24 +18,42 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public ProductDTO create(CreateProductDTO dto){
-        Product product = new Product(
-                null,
-                dto.getName(),
-                dto.getPrice(),
-                dto.getImage(),
-                dto.getQuantity()
-        );
+    @Autowired
+    private ProductMapper productMapper;
 
-        Product saved = productRepository.save(product);
-        return new ProductDTO(saved);
+    public ProductDTO create(CreateProductDTO dto){
+        Product entity = productMapper.toEntity(dto);
+        Product saved = productRepository.save(entity);
+        return productMapper.toDTO(saved);
     }
 
+    /** Example code without a mapper.
+     *   public ProductDTO create(CreateProductDTO dto){
+     *         Product prod = new Product(
+     *                 null,
+     *                 dto.getName(),
+     *                 dto.getPrice(),
+     *                 dto.getImage(),
+     *                 dto.getQuantity()
+     *         );
+     *
+     *         Product saved = productRepository.save(prod);
+     *         return new ProductDTO(saved);
+     *     }
+     */
 
     public List<ProductDTO> getAll(){
-        List<Product> products = productRepository.findAll();
-        return products.stream().map(ProductDTO::new).toList();
+        return productMapper.toDTOList(productRepository.findAll());
     }
+
+    /** Example code without a mapper.
+     *
+     *  public List<ProductDTO> getAll(){
+     *         List<Product> products = productRepository.findAll();
+     *         return products.stream().map(ProductDTO::new).toList();
+     *     }
+     *
+     */
 
     public Optional<ProductDTO> findById(Long id){
         Optional<Product> product = productRepository.findById(id);

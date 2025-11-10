@@ -4,7 +4,6 @@ import com.ewersson.products.entities.Product;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
 
 public class ProductDTO {
