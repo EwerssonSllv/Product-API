@@ -43,10 +43,10 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 ### High Priority
 
-* **Input DTOs** for creation/update (`CreateProductDTO`, `UpdateProductDTO`) and validation using `@Valid`, `@NotNull`, `@Positive`, etc.
-* **Proper Responses:** return `ResponseEntity` with correct HTTP statuses (201 Created, 404 Not Found, 400 Bad Request).
+* ✔ **Input DTOs** for creation/update (`CreateProductDTO`, `UpdateProductDTO`) and validation using `@Valid`, `@NotNull`, `@Positive`, etc.
+* ✔ **Proper Responses:** return `ResponseEntity` with correct HTTP statuses (201 Created, 404 Not Found, 400 Bad Request).
 * **Global Exception Handling:** `@ControllerAdvice` with standardized error responses.
-* **DTO ↔ Entity Mapping:** use MapStruct or a model mapper instead of manual constructors.
+* ✔ **DTO ↔ Entity Mapping:** use MapStruct or a model mapper instead of manual constructors.
 * **Unit Tests:** mock `ProductRepository` and test `ProductService`.
 * **Integration Tests:** use H2 for fast tests or Testcontainers (PostgreSQL) for real-world-like testing.
 
@@ -73,9 +73,9 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 ## Suggested Patterns and Practices
 
-* **Clear separation of layers:** Controller → Service → Repository
-* **Separate DTOs:** input vs. output DTOs
-* **Immutability in DTOs:** use `record` (Java 16+) or final classes
+* ✔ **Clear separation of layers:** Controller → Service → Repository
+* ✔ **Separate DTOs:** input vs. output DTOs
+* ✔ **Immutability in DTOs:** use `record` (Java 16+) or final classes
 * **Test critical units first** (service) and then integration
 * **Code style and linting:** adopt a formatter/Checkstyle
 * **Branching strategy:** protected `main`; feature branches; PRs with green CI

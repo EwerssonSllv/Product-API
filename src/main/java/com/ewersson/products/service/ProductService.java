@@ -55,18 +55,14 @@ public class ProductService {
      *
      */
 
-    public Optional<ProductDTO> findById(Long id){
-        Optional<Product> product = productRepository.findById(id);
-        return Optional.of(new ProductDTO(product.orElse(null)));
+    public Optional<ProductDTO> findById(Long id) {
+        return productRepository.findById(id)
+                .map(productMapper::toDTO);
     }
 
     public List<ProductDTO> findBetweenPrice(BigDecimal smaller, BigDecimal bigger) {
         List<Product> products = productRepository.findProductBetweenPrice(smaller, bigger);
-        return products.stream()
-                .map(ProductDTO::new)
-                .toList();
+        return productMapper.toDTOList(products);
     }
-
-
 
 }

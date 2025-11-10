@@ -35,12 +35,12 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    private ResponseEntity<ProductDTO> getById(
-            @PathVariable @NotNull Long id){
+    public ResponseEntity<ProductDTO> getById(@PathVariable Long id) {
         return productService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
 
     @GetMapping("price/{smaller}/{bigger}")
     private ResponseEntity<List<ProductDTO>> findBetweenPrice(
