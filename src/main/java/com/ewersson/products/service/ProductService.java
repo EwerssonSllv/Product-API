@@ -56,11 +56,11 @@ public class ProductService {
      *
      */
 
-    public Optional<ProductDTO> findById(Long id) {
+    public ProductDTO getById(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException("Product Not Found!"));
 
-        return Optional.ofNullable(productMapper.toDTO(product));
+        return productMapper.toDTO(product);
     }
 
     public List<ProductDTO> findBetweenPrice(BigDecimal smaller, BigDecimal bigger) {
