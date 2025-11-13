@@ -51,22 +51,11 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 ### Medium Priority
 
-* **Authentication/Authorization:**
-
+* ✔ **Authentication/Authorization:**
 * ✔ **JWT (stateless)** — protect endpoints such as product creation
-*   **OAuth2 (e.g., external provider integration)** — study flows and scopes
 * ✔ **Documentation:** Swagger / OpenAPI
 * **Database validations and constraints** (unique, length, not null)
 * **Structured logging** with request correlation (MDC)
-
-### Low / Exploratory
-
-* **Rate limiting** and abuse protection
-* **Metrics and observability:** Prometheus + Grafana
-* **Tracing:** Jaeger / OpenTelemetry
-* **Quality gates:** SonarQube and test coverage
-* **CI/CD:** GitHub Actions for build, tests, analysis, and deploy to staging
-* **Docker & docker-compose:** containerize the app + PostgreSQL
 
 ---
 
@@ -74,10 +63,8 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 
 * ✔ **Clear separation of layers:** Controller → Service → Repository
 * ✔ **Separate DTOs:** input vs. output DTOs
-* ✔ **Immutability in DTOs
-* **Test critical units first** (service) and then integration
-* **Code style and linting:** adopt a formatter/Checkstyle
-* **Branching strategy:** protected `main`; feature branches; PRs with green CI
+* ✔ **Immutability in DTOs**
+
 
 ---
 
@@ -88,4 +75,4 @@ Simple **Spring Boot** project used as a *playground* to study and practice soft
 * Write unit tests for `ProductService` using Mockito.
 * Create integration tests with Testcontainers running a real PostgreSQL instance.
 * Implement JWT authentication: `/auth/login` returning token; secure `POST /product`.
-* Add Swagger UI and configure API documentation
+
